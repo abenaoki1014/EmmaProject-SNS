@@ -3,20 +3,25 @@ from django.shortcuts import redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 
+# ファイルない参照　阿部
 from .models import Message,Friend,Group,Good
 from .forms import GroupCheckForm,GroupSelectForm,\
         SearchForm,FriendsForm,CreateGroupForm,PostForm
 
+# データベース関連のライブラリをインポート 阿部
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 
+# Webページにアクセスした際の処理と各ボタンの処理　阿部
+
 # indexのビュー関数
-@login_required(login_url='/admin/login/')
+@login_required(login_url='/admin/login/')  # ＵＲＬパターン　阿部
 def index(request):
     # publicのuserを取得
     (public_user, public_group) = get_public()
 
     # POST送信時の処理
+    # テキストデータを送信するとき　阿部  
     if request.method == 'POST':
 
         # Groupsのチェックを更新した時の処理
