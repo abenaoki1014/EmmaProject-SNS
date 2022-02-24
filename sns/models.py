@@ -1,16 +1,18 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+# データベース関連のクラス。値などを共有するためにクラスを設計していると思います。阿部
+
 # Messageクラス
 class Message(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE, \
-            related_name='message_owner')
+            related_name='message_owner')   # 投稿者のＩＤ　阿部
     group = models.ForeignKey('Group', on_delete=models.CASCADE)
-    content = models.TextField(max_length=1000)
+    content = models.TextField(max_length=1000) # 投稿テキスト
     share_id = models.IntegerField(default=-1)
     good_count = models.IntegerField(default=0)
     share_count = models.IntegerField(default=0)
-    pub_date = models.DateTimeField(auto_now_add=True)
+    pub_date = models.DateTimeField(auto_now_add=True)  # 投稿した時間　阿部
     
     def __str__(self):
         return str(self.content) + ' (' + str(self.owner) + ')'
@@ -31,6 +33,7 @@ class Group(models.Model):
         return self.title
 
 # Friendクラス
+# ほかのmodelと連携している　荒谷
 class Friend(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE, \
             related_name='friend_owner')
@@ -41,6 +44,7 @@ class Friend(models.Model):
         return str(self.user) + ' (group:"' + str(self.group) + '")'
 
 # Goodクラス
+# オーナーとメッセージのmodels.ForeignKeyが設定されている　荒谷
 class Good(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE, \
             related_name='good_owner')
