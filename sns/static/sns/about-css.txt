@@ -15,6 +15,10 @@ cssについて
     "Hiragino Kaku Gothic Pro","ＭＳ Ｐゴシック","MS PGothic",sans-serif;　文字のフォント指定です。
     text-align: left;   文字の行そろえです。
     text-decoration: none;　文字の装飾方法を指定しています。
+    line-height: 36px;　文字の行の高さを指定します。（行間）
+    background-color: #000000;　背景職を指定します
+    background-image: url("https://sapana.co.jp/img/sample.png");　画像背景を設定します
+    border: 1px solid #333333;　上下左右のボーダーラインの太さ、スタイル、色をまとめて指定します。
 
 
 CSSファイルの読み込み方：
