@@ -1,7 +1,18 @@
 from django.db import models
 from django.contrib.auth.models import User
+# User オブジェクト
+# User オブジェクトは、認証システムの中核です。
+# 一般的に、このオブジェクトはあなたのサイトに関係する人々を表し、
+# アクセスを制限すること、ユーザ情報を登録すること、コンテンツを作成者と関連付けることを
+# 可能にする際などに利用されます。
+# Djangoの認証フレームワークにはUserクラスという、ただひとつのクラスのみが存在します。
+# すなわち、 'superusers' または admin 'staff' ユーザは、Userオブジェクトと異なるクラスではなく、
+# 特別な属性セットを持ったUserオブジェクトなのです。
+# デフォルトのユーザの主要な属性は次のとおりです。
+# username, password, email, first_name, last_name
 
-# データベース関連のクラス。値などを共有するためにクラスを設計していると思います。阿部
+# データベース関連のクラス。値などを共有するためにクラスを設計していると思います。
+# MVCモデルと検索すれば、わかりやすい図が出てきます。　阿部
 
 # Messageクラス
 class Message(models.Model):
@@ -20,7 +31,7 @@ class Message(models.Model):
     def get_share(self):
         return Message.objects.get(id=self.share_id)
 
-    class Meta:
+    class Meta:     # metaデータです。データベーステーブルが対象のオプションです。降順整理などのことです。　阿部
         ordering = ('-pub_date',)
 
 # Groupクラス

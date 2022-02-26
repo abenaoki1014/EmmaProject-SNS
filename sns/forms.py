@@ -1,6 +1,7 @@
 from django import forms
 from.models import Message,Group,Friend,Good
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User # ログインなどの認証ライブラリです　阿部
+
 
 # Messageのフォーム（未使用）
 class MessageForm(forms.ModelForm):
