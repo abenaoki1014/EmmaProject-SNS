@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+# ここに追加したいアプリを追加
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # hello app　を追加
     'hello',
+    # sns app を追加
     'sns',
 ]
 
