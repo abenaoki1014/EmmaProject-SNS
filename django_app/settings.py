@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'hello',
     'sns',
+    # アカウントアプリを追加
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
