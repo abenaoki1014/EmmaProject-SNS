@@ -84,6 +84,9 @@ DATABASES = {
     }
 }
 
+# Userモデルの代わりに、CustomUserモデルを使用するための設定
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
